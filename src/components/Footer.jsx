@@ -1,5 +1,5 @@
 
-import React from 'react';
+
 import logoAdalab from '../images/adalab.png';
 
 

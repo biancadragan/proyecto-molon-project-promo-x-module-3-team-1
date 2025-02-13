@@ -1,4 +1,4 @@
-import React from 'react';
+
 import logoHeader from '.././images/laptop-code-solid.svg';
 import logoAdalab from '../images/adalab.png';
 

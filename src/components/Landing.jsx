@@ -1,7 +1,13 @@
 
+import Hero from './Hero';
+
+
+
 function Landing() {
     return (
-        <h1>esta es la landign</h1>
+       <>
+       <Hero/>
+       </>
     );
 }
 

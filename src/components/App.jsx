@@ -36,13 +36,13 @@ function App() {
           <Route
             path="/Preview"
             element={
-              <div>
+              <>
                 <Preview formData={formData} />
                 <Form
                   formData={formData}
                   handleInputChange={handleInputChange}
                 />
-              </div>
+              </>
             }
           />
         </Routes>

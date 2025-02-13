@@ -27,6 +27,11 @@ function App() {
     }));
   };
 
+  const handleClickSave = (ev) => {
+    ev.preventDefault();
+    localStorage.setItem("projectDates", JSON.stringify(formData));
+  };
+
   return (
     <div className="container">
       <Header />
@@ -41,6 +46,7 @@ function App() {
                 <Form
                   formData={formData}
                   handleInputChange={handleInputChange}
+                  handleClickSave={handleClickSave}
                 />
               </>
             }

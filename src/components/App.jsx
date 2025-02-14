@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Preview from "./Preview";
 import Form from "./Form";
@@ -8,16 +8,23 @@ import "../styles/App.scss";
 import Landing from "./Landing";
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    slogan: "",
-    autor: "",
-    desc: "",
-    job: "",
-    demo: "",
-    repo: "",
-    technologies: "",
+  const [formData, setFormData] = useState(() => {
+    const storedData = localStorage.getItem("projectData");
+    return storedData ? JSON.parse(storedData) : {
+      name: "",
+      slogan: "",
+      autor: "",
+      desc: "",
+      job: "",
+      demo: "",
+      repo: "",
+      technologies: "",
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem("projectData", JSON.stringify(formData));
+  }, [formData]);
 
   const handleInputChange = (ev) => {
     const { name, value } = ev.target;
@@ -29,7 +36,7 @@ function App() {
 
   const handleClickSave = (ev) => {
     ev.preventDefault();
-    localStorage.setItem("projectDates", JSON.stringify(formData));
+    localStorage.setItem("projectData", JSON.stringify(formData));
   };
 
   return (
@@ -59,3 +66,4 @@ function App() {
 }
 
 export default App;
+

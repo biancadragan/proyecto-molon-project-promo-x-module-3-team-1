@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Form({ handleInputChange, handleClickSave }) {
+function Form({ formData, handleInputChange, handleClickSave }) {
   return (
     <form className="addForm">
       <h2 className="title">Información</h2>
@@ -12,6 +12,7 @@ function Form({ handleInputChange, handleClickSave }) {
           name="name"
           id="name"
           placeholder="Nombre del proyecto"
+          value={formData.name}
           onChange={handleInputChange}
         />
         <input
@@ -20,6 +21,7 @@ function Form({ handleInputChange, handleClickSave }) {
           name="slogan"
           id="slogan"
           placeholder="Slogan"
+          value={formData.slogan}
           onChange={handleInputChange}
         />
         <div className="addForm__2col">
@@ -29,6 +31,7 @@ function Form({ handleInputChange, handleClickSave }) {
             name="repo"
             id="repo"
             placeholder="Repositorio"
+            value={formData.repo}
             onChange={handleInputChange}
           />
           <input
@@ -37,6 +40,7 @@ function Form({ handleInputChange, handleClickSave }) {
             name="demo"
             id="demo"
             placeholder="Demo"
+            value={formData.demo}
             onChange={handleInputChange}
           />
         </div>
@@ -46,6 +50,7 @@ function Form({ handleInputChange, handleClickSave }) {
           name="technologies"
           id="technologies"
           placeholder="Tecnologías"
+          value={formData.technologies}
           onChange={handleInputChange}
         />
         <textarea
@@ -54,6 +59,7 @@ function Form({ handleInputChange, handleClickSave }) {
           id="desc"
           placeholder="Descripción"
           rows="5"
+          value={formData.desc}
           onChange={handleInputChange}
         ></textarea>
       </fieldset>
@@ -66,6 +72,7 @@ function Form({ handleInputChange, handleClickSave }) {
           name="autor"
           id="autor"
           placeholder="Nombre"
+          value={formData.autor}
           onChange={handleInputChange}
         />
         <input
@@ -74,6 +81,7 @@ function Form({ handleInputChange, handleClickSave }) {
           name="job"
           id="job"
           placeholder="Trabajo"
+          value={formData.job}
           onChange={handleInputChange}
         />
       </fieldset>
@@ -96,8 +104,11 @@ function Form({ handleInputChange, handleClickSave }) {
 }
 
 Form.propTypes = {
+  formData: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleClickSave: PropTypes.func.isRequired,
 };
 
 export default Form;
+
+

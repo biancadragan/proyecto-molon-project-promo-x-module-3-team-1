@@ -21,8 +21,8 @@ function Preview({formData}) {
 
           <div className="card__technicalInfo">
             <p className="card__technologies">{formData.technologies || "React JS - HTML - CSS"}</p>
-            <a className="icon icon__www" href= {formData.demo || "https://google.com"} title="Haz click para ver el proyecto online">Web link</a>
-            <a className="icon icon__github" href= {formData.repo || "https://github.com/"} title="Haz click para ver el código del proyecto">GitHub link</a>
+            <a className="icon icon__www" href= {formData.demo || "https://google.com"} title="Haz click para ver el proyecto online" target="_blank" rel="noopener noreferrer">Web link</a>
+            <a className="icon icon__github" href= {formData.repo || "https://github.com/"} title="Haz click para ver el código del proyecto" target="_blank" rel="noopener noreferrer">GitHub link</a>
           </div>
         </div>
       </article>

@@ -1,6 +1,6 @@
 
-import logoHeader from '.././images/laptop-code-solid.svg';
-import logoAdalab from '../images/adalab.png';
+import logoHeader from '../../images/laptop-code-solid.svg';
+import logoAdalab from '../../images/adalab.png';
 
 function Header() {
   return (

@@ -1,6 +1,6 @@
 
 
-import logoAdalab from '../images/adalab.png';
+import logoAdalab from '../../images/adalab.png';
 
 
 function Footer() {

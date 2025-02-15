@@ -23,7 +23,9 @@ function App() {
   });
 
   useEffect(() => {
+    
     localStorage.setItem("projectData", JSON.stringify(formData));
+
   }, [formData]);
 
   const handleInputChange = (ev) => {
@@ -34,9 +36,17 @@ function App() {
     }));
   };
 
+  /*function isEmpty(i) {
+    const valueStr = i.value.trim();
+    return valueStr === "";
+  };*/
+
   const handleClickSave = (ev) => {
     ev.preventDefault();
-    localStorage.setItem("projectData", JSON.stringify(formData));
+    localStorage.removeItem("projectData");
+    console.log(formData);
+    setFormData({ name: "", slogan: "", autor: "", desc: "", job: "", demo: "", repo: "", technologies: "", });   
+      
   };
 
   return (

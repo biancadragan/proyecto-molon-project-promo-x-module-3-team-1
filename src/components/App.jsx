@@ -6,21 +6,27 @@ import Footer from "./Layout/Footer";
 import "../styles/App.scss";
 import Landing from "./Page/Landing";
 
+const INIT_OBJ = {
+  name: "",
+  slogan: "",
+  technologies: "",
+  repo: "",
+  demo: "",
+  desc: "",
+  autor: "",
+  job: "",
+  image: "",
+  photo: "",
+  };
+
+
 function App() {
   const [formData, setFormData] = useState(() => {
     const storedData = localStorage.getItem("projectData");
     return storedData
       ? JSON.parse(storedData)
-      : {
-          name: "",
-          slogan: "",
-          autor: "",
-          desc: "",
-          job: "",
-          demo: "",
-          repo: "",
-          technologies: "",
-        };
+      : 
+      INIT_OBJ;
   });
 
   useEffect(() => {

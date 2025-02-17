@@ -4,7 +4,7 @@ function Landing() {
   return (
     <>
       <Hero>
-        <Link className="button--link" to="/">
+        <Link className="button--link" to="/MainPage">
           Nuevo proyecto
         </Link>
       </Hero>

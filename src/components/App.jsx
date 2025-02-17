@@ -33,11 +33,10 @@ function App() {
     localStorage.setItem("projectData", JSON.stringify(formData));
   }, [formData]);
 
-  const handleInputChange = (ev) => {
-    const { name, value } = ev.target;
-    setFormData((prevData) => ({
+  const handleInputChange = (inputName, inputValue) => {
+     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [inputName]: inputValue,
     }));
   };
 

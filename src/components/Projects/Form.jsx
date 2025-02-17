@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
 
-function Form({ formData, handleInputChange, handleClickSave }) {
+function Form({ formData, handleClickSave, handleInputChange }) {
+  
+  const handleInput = (ev) => {
+    const inputName = ev.target.name;
+    const inputValue = ev.target.value;
+    handleInputChange(inputName, inputValue);
+  };
+
+
   return (
     <form className="addForm">
       <h2 className="title">Información</h2>
@@ -13,7 +21,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           id="name"
           placeholder="Nombre del proyecto"
           value={formData.name}
-          onChange={handleInputChange}
+          onChange={handleInput}
         />
         <input
           className="addForm__input"
@@ -22,7 +30,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           id="slogan"
           placeholder="Slogan"
           value={formData.slogan}
-          onChange={handleInputChange}
+          onChange={handleInput}
         />
         <div className="addForm__2col">
           <input
@@ -32,7 +40,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
             id="repo"
             placeholder="Repositorio"
             value={formData.repo}
-            onChange={handleInputChange}
+            onChange={handleInput}
           />
           <input
             className="addForm__input"
@@ -41,7 +49,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
             id="demo"
             placeholder="Demo"
             value={formData.demo}
-            onChange={handleInputChange}
+            onChange={handleInput}
           />
         </div>
         <input
@@ -51,7 +59,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           id="technologies"
           placeholder="Tecnologías"
           value={formData.technologies}
-          onChange={handleInputChange}
+          onChange={handleInput}
         />
         <textarea
           className="addForm__input"
@@ -60,7 +68,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           placeholder="Descripción"
           rows="5"
           value={formData.desc}
-          onChange={handleInputChange}
+          onChange={handleInput}
         ></textarea>
       </fieldset>
 
@@ -73,7 +81,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           id="autor"
           placeholder="Nombre"
           value={formData.autor}
-          onChange={handleInputChange}
+          onChange={handleInput}
         />
         <input
           className="addForm__input"
@@ -82,7 +90,7 @@ function Form({ formData, handleInputChange, handleClickSave }) {
           id="job"
           placeholder="Trabajo"
           value={formData.job}
-          onChange={handleInputChange}
+          onChange={handleInput}
         />
       </fieldset>
 
@@ -105,8 +113,8 @@ function Form({ formData, handleInputChange, handleClickSave }) {
 
 Form.propTypes = {
   formData: PropTypes.object.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
   handleClickSave: PropTypes.func.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 export default Form;

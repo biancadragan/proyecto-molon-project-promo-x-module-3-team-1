@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Form({ formData, handleInputChange, errors, handleFetch,fetchError }) {
+function Form({ formData, handleInputChange, errors, handleFetch,fetchError, projectUrl }) {
   
   const handleInput = (ev) => {
     const inputName = ev.target.name;

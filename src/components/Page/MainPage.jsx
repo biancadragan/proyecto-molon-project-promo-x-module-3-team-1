@@ -11,6 +11,7 @@ function MainPage({
   validateForm,
   handleFetch,
   fetchError,
+  projectUrl,
 }) {
   return (
     <>
@@ -27,6 +28,7 @@ function MainPage({
         validateForm={validateForm}
         handleFetch= {handleFetch}
         fetchError = {fetchError}
+        projectUrl={projectUrl}
       />
     </>
   );

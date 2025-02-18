@@ -43,7 +43,7 @@ function App() {
 
   const [fetchError, setFetchError] = useState('');
 
-  
+  const [ projectUrl, setProjectUrl ] = useState( '' );
   
   useEffect(() => {
     localStorage.setItem("projectData", JSON.stringify(formData));
@@ -162,6 +162,7 @@ function App() {
                   validateForm={validateForm}
                   handleFetch= {handleFetch}
                   fetchError = {fetchError}
+                  projectUrl={projectUrl}
                 />
               </>
             }

@@ -51,8 +51,12 @@ function App() {
 
   const handleFetch = (ev) => {
     ev.preventDefault();
-    validateForm();
+    const isValid = validateForm();
     setFetchError('');
+    
+    
+    if(isValid) {
+    
     fetch('https://dev.adalab.es/api/projectCard', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -68,10 +72,10 @@ function App() {
         setFetchError('');
         setFormData(INIT_OBJ);
         setProjectUrl(responseData.cardURL)
-        
+                
       }     
     })
-    
+  }
   }
 
   const validateForm = () => {
@@ -115,6 +119,16 @@ function App() {
 
     if (!formData.job.trim()) {
       newErrors.job = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.photo) {
+      newErrors.photo = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.image) {
+      newErrors.image = "Campo Obligatorio";
       isValid = false;
     }
 

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-function GetAvatar({avatar='', updateAvatar, text='Get avatar!'}) {
+function GetAvatar({ avatar = "", updateAvatar, text = "Get avatar!" }) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
   // esto es un manejador de ficheros
   const fr = new FileReader();
@@ -14,16 +14,16 @@ function GetAvatar({avatar='', updateAvatar, text='Get avatar!'}) {
     // cuando pulsamos en la label o en <input type="file" />:
     // 1º se abre la ventana de nuestro ordenador para elegir un fichero
     // 2º cuando la usuaria elije un fichero se ejecuta este método manejador de eventos
-    console.log('La usuaria ha abierto la ventana para elegir ficheros');
+    console.log("La usuaria ha abierto la ventana para elegir ficheros");
 
     // cuando se abre la ventana de nuestro navegador podemos elegir uno o varios ficheros por ello ev.currentTarget.files es una array
-    console.log('La usuaria ha elegido los ficheros', ev.currentTarget.files);
+    console.log("La usuaria ha elegido los ficheros", ev.currentTarget.files);
 
     // para este ejercicio nos interesa solo el primero de los ficheros elegidos por la usuaria, por eso ponemos [0]
     // este primer fichero es un objeto con información útil del fichero como: nombre, última modificación, tamaño del fichero...
     // este objeto no tiene información privada del ordenador de la usuaria, por ejemplo no tenemos información de la carpeta en la que está la imagen
     console.log(
-      'El primero de los ficheros elegidos es',
+      "El primero de los ficheros elegidos es",
       ev.currentTarget.files[0]
     );
 
@@ -34,7 +34,7 @@ function GetAvatar({avatar='', updateAvatar, text='Get avatar!'}) {
 
       // añado un evento load al manejador de ficheros
       // por qué añado un evento, pues porque esto es una acción asíncrona, imaginemos que el fichero pesa 5 Gb, el navegador puede tardar unos cuantos segundos en cargar y procesar el fichero, por eso le decimos "navegador, cuando termines de cargar el fichero me ejecutas el método  image"
-      fr.addEventListener('load', getImage);
+      fr.addEventListener("load", getImage);
 
       // le digo al manejador de ficheros que maneje, que cargue el fichero
       fr.readAsDataURL(myFile);
@@ -63,8 +63,8 @@ function GetAvatar({avatar='', updateAvatar, text='Get avatar!'}) {
         <input
           type="file"
           ref={myFileField}
-          className='addForm__hidden'
-          style={{ display: 'none' }}
+          className="addForm__hidden"
+          style={{ display: "none" }}
           onChange={uploadImage}
         />
       </label>
@@ -80,7 +80,7 @@ function GetAvatar({avatar='', updateAvatar, text='Get avatar!'}) {
 GetAvatar.propTypes = {
   avatar: PropTypes.string,
   updateAvatar: PropTypes.func.isRequired,
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 export default GetAvatar;

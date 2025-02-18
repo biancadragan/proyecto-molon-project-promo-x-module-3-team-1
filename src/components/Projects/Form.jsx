@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import GetAvatar from './GetAvatar';
 
-function Form({ formData, handleInputChange, errors, fetchError, handleFetch}) {
+function Form({ formData, handleInputChange, errors, fetchError, handleFetch, projectUrl}) {
   
   const handleInput = (ev) => {
     const inputName = ev.target.name;
@@ -147,7 +147,7 @@ function Form({ formData, handleInputChange, errors, fetchError, handleFetch}) {
         <button className="button--large" onClick={handleFetch}>
           Guardar proyecto
         </button>
-
+        { projectUrl && <a href={projectUrl}>Clica aquí para ver tu proyecto</a> }
         {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo','Error de envío: El formulario no se ha cumplimentado correctamente' )}</p> : null}
 
       </fieldset>
@@ -162,6 +162,7 @@ Form.propTypes = {
   errors: PropTypes.object.isRequired,
   handleFetch: PropTypes.func.isRequired,
   fetchError: PropTypes.string.isRequired,
+  projectUrl: PropTypes.string.isRequired,
 };
 
 export default Form;

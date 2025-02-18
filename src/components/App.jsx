@@ -52,11 +52,11 @@ function App() {
   const handleFetch = (ev) => {
     ev.preventDefault();
     validateForm();
-    
+    setFetchError('');
     fetch('https://dev.adalab.es/api/projectCard', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body:JSON.stringify(FormData)
+      body:JSON.stringify(formData)
     })
     .then( response => response.json())
     .then( responseData => {
@@ -64,7 +64,12 @@ function App() {
       if (responseData.success === false) {
         setFetchError(responseData.error)
       }
-      
+      else {
+        setFetchError('');
+        setFormData(INIT_OBJ);
+        setProjectUrl(responseData.cardURL)
+        
+      }     
     })
     
   }
@@ -147,6 +152,7 @@ function App() {
                   handleFetch= {handleFetch}
                   fetchError = {fetchError}
                   projectUrl={projectUrl}
+                  
                 />
               </>
             }

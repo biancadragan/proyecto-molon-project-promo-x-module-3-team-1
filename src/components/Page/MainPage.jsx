@@ -10,7 +10,7 @@ function MainPage({
   errors,
   handleFetch,
   fetchError,
-  
+  projectUrl
 }) {
   return (
     <>
@@ -26,7 +26,7 @@ function MainPage({
         errors={errors}
         handleFetch= {handleFetch}
         fetchError = {fetchError}
-        
+        projectUrl={projectUrl}
       />
     </>
   );
@@ -38,6 +38,7 @@ MainPage.propTypes = {
   errors: PropTypes.object.isRequired,  
   handleFetch: PropTypes.func.isRequired,
   fetchError: PropTypes.string.isRequired,
+  projectUrl: PropTypes.string.isRequired,
 };
 
 export default MainPage;

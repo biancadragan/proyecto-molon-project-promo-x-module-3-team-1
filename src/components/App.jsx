@@ -5,6 +5,7 @@ import MainPage from "./Page/MainPage";
 import Footer from "./Layout/Footer";
 import "../styles/App.scss";
 import Landing from "./Page/Landing";
+import Error404Page from "./Page/Error404Page";
 
 const INIT_OBJ = {
   name: "",
@@ -17,16 +18,12 @@ const INIT_OBJ = {
   job: "",
   image: "",
   photo: "",
-  };
-
+};
 
 function App() {
   const [formData, setFormData] = useState(() => {
     const storedData = localStorage.getItem("projectData");
-    return storedData
-      ? JSON.parse(storedData)
-      : 
-      INIT_OBJ;
+    return storedData ? JSON.parse(storedData) : INIT_OBJ;
   });
 
   useEffect(() => {
@@ -34,7 +31,7 @@ function App() {
   }, [formData]);
 
   const handleInputChange = (inputName, inputValue) => {
-     setFormData((prevData) => ({
+    setFormData((prevData) => ({
       ...prevData,
       [inputName]: inputValue,
     }));
@@ -74,6 +71,7 @@ function App() {
               </>
             }
           />
+          <Route path="*" element={<Error404Page />} />
         </Routes>
       </main>
       <Footer />

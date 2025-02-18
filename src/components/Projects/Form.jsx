@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import GetAvatar from './GetAvatar';
 
-function Form({ formData, handleClickSave, handleInputChange, errors }) {
+function Form({ formData, handleClickSave, handleInputChange, errors, onSubmit }) {
   console.log(errors);
   const handleInput = (ev) => {
     const inputName = ev.target.name;
@@ -10,17 +10,21 @@ function Form({ formData, handleClickSave, handleInputChange, errors }) {
     handleInputChange(inputName, inputValue);
   };
 
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
   const updatePhoto = (image) => { // Proyecto
-    onChange('photo', image);
+    handleInputChange('photo', image);
   }
 
   const updateImage = (image) => { // Autora
-    onChange('image', image);
+    handleInputChange('image', image);
   }
 
 
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSubmit}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>

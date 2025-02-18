@@ -9,7 +9,7 @@ function MainPage({
   handleInputChange,
   handleClickSave,
   errors,
-  validatorForm,
+  validateForm,
 }) {
   return (
     <>
@@ -24,7 +24,7 @@ function MainPage({
         handleInputChange={handleInputChange}
         handleClickSave={handleClickSave}
         errors={errors}
-        validatorForm={validatorForm}
+        validateForm={validateForm}
       />
     </>
   );
@@ -35,7 +35,7 @@ MainPage.propTypes = {
   handleInputChange: PropTypes.func.isRequired,
   handleClickSave: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  validatorForm: PropTypes.func.isRequired,
+  validateForm: PropTypes.func.isRequired,
 };
 
 export default MainPage;

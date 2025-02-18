@@ -40,6 +40,9 @@ function App() {
   });
 
   const [errors, setErrors] = useState(INIT_ERRORS);
+
+  const [fetchError, setFetchError] = useState('');
+
   console.log(errors);
   useEffect(() => {
     localStorage.setItem("projectData", JSON.stringify(formData));
@@ -51,10 +54,12 @@ function App() {
       headers: {'Content-Type':'application/json'},
       body:JSON.stringify(FormData)
     })
-    .them( response => response.json())
-    .them( response => {
-      console.log(formData)
-      //validateForm()
+    .then( response => response.json())
+    .then( responseData => {
+      console.log(responseData)
+      if (responseData.success === false) {
+        setFetchError(responseData.error)
+      }
     })
   }
 
@@ -153,6 +158,7 @@ function App() {
                   errors={errors}
                   validateForm={validateForm}
                   handleSubmit= {handleSubmit}
+                  fetchError = {fetchError}
                 />
               </>
             }

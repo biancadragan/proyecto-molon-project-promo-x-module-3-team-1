@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Form({ formData, handleInputChange, errors, handleSubmit }) {
+function Form({ formData, handleInputChange, errors, handleSubmit,fetchError }) {
   console.log(errors);
   const handleInput = (ev) => {
     const inputName = ev.target.name;
@@ -137,6 +137,9 @@ function Form({ formData, handleInputChange, errors, handleSubmit }) {
         <button className="button--large" onClick={handleSubmit}>
           Guardar proyecto
         </button>
+
+        {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo','Error de envío: El formulario no se ha cumplimentado correctamente' )}</p> : null}
+
       </fieldset>
     </form>
   );
@@ -148,6 +151,7 @@ Form.propTypes = {
   handleInputChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  fetchError: PropTypes.array.isRequired,
 };
 
 export default Form;

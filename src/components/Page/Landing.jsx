@@ -3,11 +3,13 @@ import { Link } from "react-router";
 function Landing() {
   return (
     <>
-      <Hero>
-        <Link className="button--link" to="/MainPage">
-          Nuevo proyecto
-        </Link>
-      </Hero>
+      <div className="hero-complex">
+        <Hero>
+          <Link className="button--link" to="/MainPage">
+            Nuevo proyecto
+          </Link>
+        </Hero>
+      </div>
     </>
   );
 }

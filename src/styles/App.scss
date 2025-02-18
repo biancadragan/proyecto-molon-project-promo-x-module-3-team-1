@@ -109,7 +109,6 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom: 3rem;
-    
   }
   
   @media screen and (min-width: 768px) {
@@ -117,7 +116,12 @@
       grid-column: span 2;
     }
   }
-  
+
+  .hero-complex {
+    height: 100vh;
+    display: flex;
+  }
+
   .hero .title {
     font: var(--font-title-big);
     margin-bottom: 8px;

@@ -120,11 +120,11 @@ function App() {
     });
     validateForm();
   };
-
+ 
   return (
     <div className="container">
       <Header />
-      <main className="main">
+      <main className="main main--grid"> {/*Prueba para la landing*/}
         <Routes>
           <Route index element={<Landing />} />
           <Route

@@ -23,12 +23,22 @@
   color: var(--color-white);
 }
 
+//PRUEBAS PARA ARREGLAR LA LANDING
+
 @media screen and (min-width: 768px) {
-  .main {
+  .main--grid {
     max-width: 980px;
     margin-inline: auto;
     display: grid;
     grid-template-columns: 6fr 5fr;
+    gap: 2rem;
+  }
+
+  .main--landing {
+    max-width: 980px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Solo una columna en la Landing */
     gap: 2rem;
   }
 }

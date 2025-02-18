@@ -7,9 +7,9 @@ import Preview from "../Projects/Preview";
 function MainPage({
   formData,
   handleInputChange,
-  handleClickSave,
   errors,
   validatorForm,
+  handleSubmit,
 }) {
   return (
     <>
@@ -25,6 +25,7 @@ function MainPage({
         handleClickSave={handleClickSave}
         errors={errors}
         validatorForm={validatorForm}
+        handleSubmit= {handleSubmit}
       />
     </>
   );
@@ -33,9 +34,9 @@ function MainPage({
 MainPage.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  handleClickSave: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   validatorForm: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default MainPage;

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function Form({ formData, handleClickSave, handleInputChange, errors }) {
+function Form({ formData, handleInputChange, errors, handleSubmit }) {
   console.log(errors);
   const handleInput = (ev) => {
     const inputName = ev.target.name;
@@ -134,7 +134,7 @@ function Form({ formData, handleClickSave, handleInputChange, errors }) {
           Subir foto de la autora
           <input className="addForm__hidden" type="file" />
         </label>
-        <button className="button--large" onClick={handleClickSave}>
+        <button className="button--large" onClick={handleSubmit}>
           Guardar proyecto
         </button>
       </fieldset>
@@ -144,9 +144,10 @@ function Form({ formData, handleClickSave, handleInputChange, errors }) {
 
 Form.propTypes = {
   formData: PropTypes.object.isRequired,
-  handleClickSave: PropTypes.func.isRequired,
+  
   handleInputChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;

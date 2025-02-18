@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import GetAvatar from './GetAvatar';
 
 function Form({ formData, handleClickSave, handleInputChange, errors }) {
   console.log(errors);
@@ -8,6 +9,15 @@ function Form({ formData, handleClickSave, handleInputChange, errors }) {
 
     handleInputChange(inputName, inputValue);
   };
+
+  const updatePhoto = (image) => { // Proyecto
+    onChange('photo', image);
+  }
+
+  const updateImage = (image) => { // Autora
+    onChange('image', image);
+  }
+
 
   return (
     <form className="addForm">
@@ -126,14 +136,10 @@ function Form({ formData, handleClickSave, handleInputChange, errors }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label className="button">
-          Subir foto del proyecto
-          <input className="addForm__hidden" type="file" />
-        </label>
-        <label className="button">
-          Subir foto de la autora
-          <input className="addForm__hidden" type="file" />
-        </label>
+        <GetAvatar updateAvatar={updatePhoto} text="Subir foto del proyecto" />
+
+        <GetAvatar updateAvatar={updateImage} text="Subir foto de la autora" />
+
         <button className="button--large" onClick={handleClickSave}>
           Guardar proyecto
         </button>

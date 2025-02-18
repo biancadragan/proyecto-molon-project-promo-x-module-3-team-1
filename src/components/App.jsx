@@ -20,21 +20,88 @@ const INIT_OBJ = {
   photo: "",
 };
 
+const INIT_ERRORS = {
+  name: "",
+  slogan: "",
+  technologies: "",
+  repo: "",
+  demo: "",
+  desc: "",
+  autor: "",
+  job: "",
+  image: "",
+  photo: "",
+};
+
 function App() {
   const [formData, setFormData] = useState(() => {
     const storedData = localStorage.getItem("projectData");
     return storedData ? JSON.parse(storedData) : INIT_OBJ;
   });
 
+  const [errors, setErrors] = useState(INIT_ERRORS);
+  console.log(errors);
   useEffect(() => {
     localStorage.setItem("projectData", JSON.stringify(formData));
   }, [formData]);
+
+  const validateForm = () => {
+    let isValid = true;
+    let newErrors = { ...INIT_ERRORS };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.slogan.trim()) {
+      newErrors.slogan = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.technologies.trim()) {
+      newErrors.technologies = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.repo.trim()) {
+      newErrors.repo = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.demo.trim()) {
+      newErrors.demo = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.desc.trim()) {
+      newErrors.desc = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.autor.trim()) {
+      newErrors.autor = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    if (!formData.job.trim()) {
+      newErrors.job = "Campo Obligatorio";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+
+    return isValid;
+  };
 
   const handleInputChange = (inputName, inputValue) => {
     setFormData((prevData) => ({
       ...prevData,
       [inputName]: inputValue,
     }));
+
+    const updatedErrors = { ...errors, [inputName]: "" };
+    setErrors(updatedErrors);
   };
 
   const handleClickSave = (ev) => {
@@ -51,6 +118,7 @@ function App() {
       repo: "",
       technologies: "",
     });
+    validateForm();
   };
 
   return (
@@ -67,6 +135,8 @@ function App() {
                   formData={formData}
                   handleInputChange={handleInputChange}
                   handleClickSave={handleClickSave}
+                  errors={errors}
+                  validateForm={validateForm}
                 />
               </>
             }

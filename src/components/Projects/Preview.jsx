@@ -31,7 +31,7 @@ function Preview({formData}) {
 }
 
 Preview.propTypes = {
-formData: PropTypes.obj
+formData: PropTypes.object.isRequired,
 }
 
 export default Preview;

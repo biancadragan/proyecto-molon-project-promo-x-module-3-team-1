@@ -43,12 +43,15 @@ function App() {
 
   const [fetchError, setFetchError] = useState('');
 
-  console.log(errors);
+  
+  
   useEffect(() => {
     localStorage.setItem("projectData", JSON.stringify(formData));
   }, [formData]);
 
-  const handleSubmit = () => {
+  const handleFetch = (ev) => {
+    ev.preventDefault();
+    
     fetch('https://dev.adalab.es/api/projectCard', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -60,7 +63,9 @@ function App() {
       if (responseData.success === false) {
         setFetchError(responseData.error)
       }
+      
     })
+    
   }
 
   const validateForm = () => {
@@ -125,10 +130,8 @@ function App() {
   //el localStorage se tiene que llamar en la constante formData haciendo un get en el useState.
   //el set se tiene que llamar con un useEffect aquí en app.
   //En consecuencia la función handleClickSave desaparece y deja que en el botón de save se llame a la función handleSubmit
-  const handleClickSave = (ev) => {
-    ev.preventDefault();
+  const formClear = () => {    
     localStorage.removeItem("projectData");
-    console.log(formData);
     setFormData({
       name: "",
       slogan: "",
@@ -157,7 +160,7 @@ function App() {
                   handleInputChange={handleInputChange}
                   errors={errors}
                   validateForm={validateForm}
-                  handleSubmit= {handleSubmit}
+                  handleFetch= {handleFetch}
                   fetchError = {fetchError}
                 />
               </>

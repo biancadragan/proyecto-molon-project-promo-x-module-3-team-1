@@ -8,8 +8,8 @@ function MainPage({
   formData,
   handleInputChange,
   errors,
-  validatorForm,
-  handleSubmit,
+  validateForm,
+  handleFetch,
   fetchError,
 }) {
   return (
@@ -24,8 +24,8 @@ function MainPage({
         formData={formData}
         handleInputChange={handleInputChange}
         errors={errors}
-        validatorForm={validatorForm}
-        handleSubmit= {handleSubmit}
+        validateForm={validateForm}
+        handleFetch= {handleFetch}
         fetchError = {fetchError}
       />
     </>
@@ -36,9 +36,9 @@ MainPage.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  validatorForm: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  fetchError: PropTypes.array.isRequired,
+  validateForm: PropTypes.func.isRequired,
+  handleFetch: PropTypes.func.isRequired,
+  fetchError: PropTypes.string.isRequired,
 };
 
 export default MainPage;

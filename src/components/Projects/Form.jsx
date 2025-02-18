@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-function Form({ formData, handleInputChange, errors, handleSubmit,fetchError }) {
-  console.log(errors);
+function Form({ formData, handleInputChange, errors, handleFetch,fetchError }) {
+  
   const handleInput = (ev) => {
     const inputName = ev.target.name;
     const inputValue = ev.target.value;
@@ -9,8 +9,11 @@ function Form({ formData, handleInputChange, errors, handleSubmit,fetchError }) 
     handleInputChange(inputName, inputValue);
   };
 
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
   return (
-    <form className="addForm">
+    <form className="addForm" onSubmit={handleSubmit}>
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -134,7 +137,7 @@ function Form({ formData, handleInputChange, errors, handleSubmit,fetchError }) 
           Subir foto de la autora
           <input className="addForm__hidden" type="file" />
         </label>
-        <button className="button--large" onClick={handleSubmit}>
+        <button className="button--large" onClick={handleFetch}>
           Guardar proyecto
         </button>
 
@@ -150,8 +153,8 @@ Form.propTypes = {
   
   handleInputChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  fetchError: PropTypes.array.isRequired,
+  handleFetch: PropTypes.func.isRequired,
+  fetchError: PropTypes.string.isRequired,
 };
 
 export default Form;

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import GetAvatar from './GetAvatar';
 
-function Form({ formData, handleInputChange, errors, handleFetch,fetchError, projectUrl }) {
+function Form({ formData, handleInputChange, errors, fetchError, handleFetch}) {
   
   const handleInput = (ev) => {
     const inputName = ev.target.name;
@@ -12,6 +13,16 @@ function Form({ formData, handleInputChange, errors, handleFetch,fetchError, pro
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+
+  const updatePhoto = (image) => { // Proyecto
+    handleInputChange('photo', image);
+  }
+
+  const updateImage = (image) => { // Autora
+    handleInputChange('image', image);
+  }
+
+
   return (
     <form className="addForm" onSubmit={handleSubmit}>
       <h2 className="title">Información</h2>
@@ -129,14 +140,10 @@ function Form({ formData, handleInputChange, errors, handleFetch,fetchError, pro
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label className="button">
-          Subir foto del proyecto
-          <input className="addForm__hidden" type="file" />
-        </label>
-        <label className="button">
-          Subir foto de la autora
-          <input className="addForm__hidden" type="file" />
-        </label>
+        <GetAvatar updateAvatar={updatePhoto} text="Subir foto del proyecto" />
+
+        <GetAvatar updateAvatar={updateImage} text="Subir foto de la autora" />
+
         <button className="button--large" onClick={handleFetch}>
           Guardar proyecto
         </button>

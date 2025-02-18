@@ -51,6 +51,7 @@ function App() {
 
   const handleFetch = (ev) => {
     ev.preventDefault();
+    validateForm();
     
     fetch('https://dev.adalab.es/api/projectCard', {
       method: 'POST',
@@ -127,24 +128,7 @@ function App() {
     setErrors(updatedErrors);
   };
 
-  //el localStorage se tiene que llamar en la constante formData haciendo un get en el useState.
-  //el set se tiene que llamar con un useEffect aquí en app.
-  //En consecuencia la función handleClickSave desaparece y deja que en el botón de save se llame a la función handleSubmit
-  const formClear = () => {    
-    localStorage.removeItem("projectData");
-    setFormData({
-      name: "",
-      slogan: "",
-      autor: "",
-      desc: "",
-      job: "",
-      demo: "",
-      repo: "",
-      technologies: "",
-    });
-    validateForm();
-  };
- 
+   
   return (
     <div className="container">
       <Header />

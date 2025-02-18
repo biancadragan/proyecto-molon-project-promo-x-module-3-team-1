@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 function Preview({formData}) {
   return (
     <section className="preview">
-      <div className="projectImage"></div>
+      <div className="projectImage" style={{ backgroundImage: formData.photo ? `url(${formData.photo})` : null }}></div>
       <article className="card">
         <h2 className="card__projectTitle"><span className="card__projectTitle--text">Personal project card</span></h2>
 
         <div className="card__author">
-          <div className="card__authorPhoto"></div>
+          <div className="card__authorPhoto"  style={{ backgroundImage: formData.image ? `url(${formData.image})` : null }}></div>
           <p className="card__job">{formData.job || "Full stack Developer"}</p>
           <h3 className="card__name">{formData.autor || "Emmelie Bjôrklund"}</h3>
         </div>

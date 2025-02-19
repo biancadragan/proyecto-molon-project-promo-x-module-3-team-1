@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import GetAvatar from './GetAvatar';
 
-function Form({ formData, handleInputChange, errors, fetchError, handleFetch, projectUrl}) {
-  
+function Form({ formData, handleInputChange, errors, fetchError, handleFetch, projectUrl }) {
+
   const handleInput = (ev) => {
     const inputName = ev.target.name;
     const inputValue = ev.target.value;
@@ -54,32 +54,32 @@ function Form({ formData, handleInputChange, errors, fetchError, handleFetch, pr
           {errors.slogan && <p className="error">{errors.slogan}</p>}
         </div>
 
-        <div className="addForm__2col">
-          <div className="form-field">
-            <input
-              className="addForm__input"
-              type="url"
-              name="repo"
-              id="repo"
-              placeholder="Repositorio"
-              value={formData.repo}
-              onChange={handleInput}
-            />
-            {errors.repo && <p className="error">{errors.repo}</p>}
-          </div>
-          <div className="form-field">
-            <input
-              className="addForm__input"
-              type="url"
-              name="demo"
-              id="demo"
-              placeholder="Demo"
-              value={formData.demo}
-              onChange={handleInput}
-            />
-            {errors.demo && <p className="error">{errors.demo}</p>}
-          </div>
+
+        <div className="form-field">
+          <input
+            className="addForm__input"
+            type="url"
+            name="repo"
+            id="repo"
+            placeholder="Repositorio"
+            value={formData.repo}
+            onChange={handleInput}
+          />
+          {errors.repo && <p className="error">{errors.repo}</p>}
         </div>
+        <div className="form-field">
+          <input
+            className="addForm__input"
+            type="url"
+            name="demo"
+            id="demo"
+            placeholder="Demo"
+            value={formData.demo}
+            onChange={handleInput}
+          />
+          {errors.demo && <p className="error">{errors.demo}</p>}
+        </div>
+
 
         <div className="form-field">
           <input
@@ -141,18 +141,18 @@ function Form({ formData, handleInputChange, errors, fetchError, handleFetch, pr
 
       <fieldset className="addForm__group--upload">
         <div>
-        <GetAvatar updateAvatar={updatePhoto} text="Subir foto del proyecto" />
-        {errors.photo && <p className="error">{errors.photo}</p>}
+          <GetAvatar updateAvatar={updatePhoto} text="Subir foto del proyecto" />
+          {errors.photo && <p className="error">{errors.photo}</p>}
         </div>
         <div>
-        <GetAvatar updateAvatar={updateImage} text="Subir foto de la autora" />
-        {errors.image && <p className="error">{errors.image}</p>}
+          <GetAvatar updateAvatar={updateImage} text="Subir foto de la autora" />
+          {errors.image && <p className="error">{errors.image}</p>}
         </div>
         <button className="button--large" onClick={handleFetch}>
           Guardar proyecto
         </button>
-        { projectUrl && <a href={projectUrl} target="_blank" rel="noopener noreferrer">Clica aquí para ver tu proyecto</a> }
-        {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo','Error de envío: El formulario no se ha cumplimentado correctamente' )}</p> : null}
+        {projectUrl && <a href={projectUrl} target="_blank" rel="noopener noreferrer">Clica aquí para ver tu proyecto</a>}
+        {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo', 'Error de envío: El formulario no se ha cumplimentado correctamente')}</p> : null}
 
       </fieldset>
     </form>
@@ -161,7 +161,7 @@ function Form({ formData, handleInputChange, errors, fetchError, handleFetch, pr
 
 Form.propTypes = {
   formData: PropTypes.object.isRequired,
-  
+
   handleInputChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   handleFetch: PropTypes.func.isRequired,

@@ -14,7 +14,7 @@ function MainPage({
 }) {
   return (
   
-  <section className="main main--grid" >
+  <section className="main--grid" >
       <Hero>
         <Link className="button--link" to="/">
           Ver proyectos

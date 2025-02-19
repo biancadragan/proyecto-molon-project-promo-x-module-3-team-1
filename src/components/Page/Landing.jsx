@@ -3,13 +3,13 @@ import { Link } from "react-router";
 function Landing() {
   return (
     <>
-      <div className="main main--landing hero-complex"> {/*Prueba para la landing*/}
+      <section className="main hero-complex">
         <Hero>
           <Link className="button--link" to="/MainPage">
             Nuevo proyecto
           </Link>
         </Hero>
-      </div>
+      </section>
     </>
   );
 }

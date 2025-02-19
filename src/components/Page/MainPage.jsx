@@ -13,7 +13,8 @@ function MainPage({
   projectUrl
 }) {
   return (
-    <>
+  
+  <section className="main main--grid" >
       <Hero>
         <Link className="button--link" to="/">
           Ver proyectos
@@ -24,18 +25,19 @@ function MainPage({
         formData={formData}
         handleInputChange={handleInputChange}
         errors={errors}
-        handleFetch= {handleFetch}
-        fetchError = {fetchError}
+        handleFetch={handleFetch}
+        fetchError={fetchError}
         projectUrl={projectUrl}
       />
-    </>
+  </section>
+   
   );
 }
 
 MainPage.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,  
+  errors: PropTypes.object.isRequired,
   handleFetch: PropTypes.func.isRequired,
   fetchError: PropTypes.string.isRequired,
   projectUrl: PropTypes.string.isRequired,

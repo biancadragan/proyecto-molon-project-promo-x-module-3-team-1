@@ -148,13 +148,16 @@ function Form({ formData, handleInputChange, errors, fetchError, handleFetch, pr
           <GetAvatar updateAvatar={updateImage} text="Subir foto de la autora" />
           {errors.image && <p className="error">{errors.image}</p>}
         </div>
-        <button className="button--large" onClick={handleFetch}>
-          Guardar proyecto
-        </button>
-        {projectUrl && <a href={projectUrl} target="_blank" rel="noopener noreferrer">Clica aquí para ver tu proyecto</a>}
-        {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo', 'Error de envío: El formulario no se ha cumplimentado correctamente')}</p> : null}
-
+        <div>
+          <button className="button--large" onClick={handleFetch}>
+            Guardar proyecto
+          </button>
+        </div>
       </fieldset>
+      <div className="container--link">
+        {projectUrl && <a href={projectUrl} target="_blank" rel="noopener noreferrer" className="link">Clica aquí para ver tu proyecto</a>}
+        {fetchError ? <p>{fetchError.replace('Mandatory fields: name, slogan, technologies, demo, repo, desc, autor, job, image, photo', 'Error de envío: El formulario no se ha cumplimentado correctamente')}</p> : null}
+      </div>
     </form>
   );
 }

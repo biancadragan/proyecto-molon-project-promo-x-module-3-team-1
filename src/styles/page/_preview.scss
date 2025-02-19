@@ -68,6 +68,11 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .card .card__author .card__name {
+    margin: 0 10px 0;
   }
   
   .card .card__authorPhoto {
